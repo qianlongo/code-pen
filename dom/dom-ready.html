@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    setInterval(function () {
+      console.log(document.readyState)
+    }, 1);
+
+    (function () {
+      let doc = document
+      let ready = (callback) => {
+        if (doc.readyState === 'compelete' || doc.readyState !== 'loading' && !doc.documentElement.doScroll) {
+          setTimeout(callback, 0)
+        } else {
+          let hander = () => {
+            doc.removeEventListener('DOMContentloaded', hander, false)
+            window.removeEventListener('load', hander, false)
+            callback()
+          }
+          doc.addEventListener('DOMContentloaded', () => {
+            console.log('DOMContentloaded')
+            hander()
+          }, false)
+          window.addEventListener('load', () => {
+            console.log('window load')
+            hander()
+          }, false)
+        }
+      }
+
+      ready(() => {
+        console.log('hahahha')
+      })
+    })()
+  </script>
+  <script src="http://code.jquery.com/jquery-2.1.1.m3in.js"></script>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+  
+</body>
+</html>

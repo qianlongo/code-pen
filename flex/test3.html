@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>flex demos</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #000;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .first-face {
+      display: flex;
+    }
+
+    .second-face {
+      display: flex;
+      justify-content: center;
+    }
+
+    .three-face {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .four-face {
+      display: flex;
+      align-items: center;
+    }
+
+    .five-face {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .six-face {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .seven-face {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+
+    .first-2-face {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .second-2-face {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .three-2-face {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .four-2-face {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .five-2-face {
+      display: flex;
+    }
+
+    .five-2-face .pip:nth-of-type(2) {
+      align-self: center;
+    }
+
+    .six-2-face {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .six-2-face .pip:nth-of-type(2) {
+      align-self: flex-end;
+    }
+
+    .first-3-face {
+      display: flex;
+    }
+
+    .first-3-face .pip:nth-of-type(2) {
+      align-self: center;
+    }
+
+    .first-3-face .pip:nth-of-type(3) {
+      align-self: flex-end;
+    }
+
+    .first-4-face {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      align-content: space-between;
+    }
+
+    .second-4-face {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+    }
+
+    .second-4-face .colmun {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .second-6-face {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+    }
+
+    .second-6-face .colmun {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .three-6-face {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .three-6-face .colmun {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .four-6-face {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .four-6-face .row {
+      width: 100%;
+      display: flex;
+    }
+
+    .four-6-face .row:nth-child(2) {
+      justify-content: center;
+    }
+
+    .four-6-face .row:nth-child(1), .four-6-face .row:nth-child(3) {
+      justify-content: space-between;
+    }
+
+    [class$="face"] {
+      margin: 16px;
+      padding: 4px;
+      width: 104px;
+      height: 104px;
+      background-color: #e7e7e7;
+      box-shadow: inset 0 5px white,
+      inset 0 -5px #bbb,
+      inset 5px 0 #d7d7d7,
+      inset -5px 0 #d7d7d7;
+
+      border-radius: 10%;
+    }
+
+    .pip {
+      display: block;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      margin: 4px;
+
+      background-color: #333;
+      box-shadow: inset 0 3px #111, inset 0 -3px #555;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="first-face">
+    <span class="pip"></span>
+  </div>
+
+  <div class="second-face">
+    <span class="pip"></span>
+  </div>
+
+  <div class="three-face">
+    <span class="pip"></span>
+  </div>
+
+  <div class="four-face">
+    <span class="pip"></span>
+  </div>
+
+  <div class="five-face">
+    <span class="pip"></span>
+  </div>
+
+  <div class="six-face">
+    <span class="pip"></span>
+  </div>
+
+  <div class="seven-face">
+    <span class="pip"></span>
+  </div>
+
+  <div class="first-2-face">
+    <span class="pip"></span>
+    <span class="pip"></span>
+  </div>
+
+  <div class="second-2-face">
+    <span class="pip"></span>
+    <span class="pip"></span>
+  </div>
+
+  <div class="three-2-face">
+    <span class="pip"></span>
+    <span class="pip"></span>
+  </div>
+
+  <div class="four-2-face">
+    <span class="pip"></span>
+    <span class="pip"></span>
+  </div>
+
+  <div class="five-2-face">
+    <span class="pip"></span>
+    <span class="pip"></span>
+  </div>
+
+  <div class="six-2-face">
+    <span class="pip"></span>
+    <span class="pip"></span>
+  </div>
+
+  <div class="first-3-face">
+    <span class="pip"></span>
+    <span class="pip"></span>
+    <span class="pip"></span>
+  </div>
+
+  <div class="first-4-face">
+    <span class="pip"></span>
+    <span class="pip"></span>
+    <span class="pip"></span>
+    <span class="pip"></span>
+  </div>
+
+  <div class="second-4-face">
+    <div class="colmun">
+      <span class="pip"></span>
+      <span class="pip"></span>
+    </div>
+    <div class="colmun">
+      <span class="pip"></span>
+      <span class="pip"></span>
+    </div>
+  </div>
+
+  <div class="second-6-face">
+    <div class="colmun">
+      <span class="pip"></span>
+      <span class="pip"></span>
+      <span class="pip"></span>
+    </div>
+    <div class="colmun">
+      <span class="pip"></span>
+      <span class="pip"></span>
+      <span class="pip"></span>
+    </div>
+  </div>
+
+  <div class="three-6-face">
+    <div class="colmun">
+      <span class="pip"></span>
+      <span class="pip"></span>
+      <span class="pip"></span>
+    </div>
+    <div class="colmun">
+      <span class="pip"></span>
+      <span class="pip"></span>
+      <span class="pip"></span>
+    </div>
+  </div>
+
+  <div class="four-6-face">
+    <div class="row">
+      <span class="pip"></span>
+      <span class="pip"></span>
+      <span class="pip"></span>
+    </div>
+    <div class="row">
+      <span class="pip"></span>
+    </div>
+    <div class="row">
+      <span class="pip"></span>
+      <span class="pip"></span>
+      <span class="pip"></span>
+    </div>
+  </div>
+
+  <div class="four-6-face">
+    <div class="row">
+      <span class="pip"></span>
+      <span class="pip"></span>
+      <span class="pip"></span>
+    </div>
+    <div class="row">
+      <span class="pip"></span>
+      <span class="pip"></span>
+      <span class="pip"></span>
+    </div>
+    <div class="row">
+      <span class="pip"></span>
+      <span class="pip"></span>
+      <span class="pip"></span>
+    </div>
+  </div>
+</body>
+
+</html>

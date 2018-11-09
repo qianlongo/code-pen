@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>flex</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrap{
+      border: solid 1px green;
+      margin-top: 100px;
+      width: 200px;
+    }
+    .wrap p{
+      background: red;
+      word-wrap: break-word;
+    }
+    .wrap p.child1{
+      width: 100px;
+      margin-right: 100px;
+    }
+
+    .flex{
+      display: flex;
+      /*justify-content: space-between;*/
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap flex">
+    <p class="child1">asdfasdf</p>
+    <p>adsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsdadsfsd</p>
+  </div>
+</body>
+
+</html>

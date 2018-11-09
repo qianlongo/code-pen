@@ -1,0 +1,24 @@
+{
+  "name": "code-pen",
+  "version": "1.0.0",
+  "description": "You can use the [editor on GitHub](https://github.com/qianlongo/code-pen/edit/master/README.md) to maintain and preview the content for your website in Markdown files.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qianlongo/code-pen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qianlongo/code-pen/issues"
+  },
+  "homepage": "https://github.com/qianlongo/code-pen#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.12",
+    "gulp": "^3.9.1",
+    "pdfjs-dist": "^2.0.183"
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>外边距叠加</title>
+  <style>
+    .parent1 {
+      height: 20px;
+      background: yellow;
+      margin-bottom: 20px;
+    }
+
+    .parent2 {
+      margin: 20px 0 30px;
+    }
+
+    .parent3 {
+      height: 20px;
+      background: green;
+      margin-top: 20px;
+    }
+
+    .child {
+      background: red;
+      height: 20px;
+      margin: 40px 0 30px;
+    }
+
+    .demo {
+      height: 30px;
+      background: red;
+    }
+
+    .margin-test {
+      margin: 20px 0 30px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="parent1"></div>
+  <div class="parent2">
+    <div class="child"></div>
+    <div class="child"></div>
+    <div class="child"></div>
+  </div>
+  <div class="parent3"></div>
+  <div class="container">
+    <div class="demo"></div>
+    <div class="margin-test"></div>
+    <div class="demo"></div>
+  </div>
+</body>
+
+</html>

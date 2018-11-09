@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>postMessage</title>
+</head>
+
+<body>
+  <div class="box">
+    <input type="text" class="val">
+    <button>发送</button>
+  </div>
+  <iframe src="http://child.hujiang.com:3000/post-message/child.html" frameborder="0" id="child"></iframe>
+  <script>
+    document.domain = 'hujiang.com'
+    document.querySelector('button').addEventListener('click', () => {
+      let val = document.querySelector('.val').value
+      let $parent = document.querySelector('#child')
+      let childWin = $parent.contentWindow
+      childWin.postMessage({
+        value: val
+      }, 'http://child.hujiang.com:3000/post-message/child.html')
+    }, false)
+    
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>max len</title>
+</head>
+<body>
+  <div class="">
+    <input type="text">
+    <button>点击</button>
+    <div class="text"></div>
+    <script>
+      let oBtn = document.querySelector('button')
+      let input = document.querySelector('input')
+      let textEle = document.querySelector('.text')
+
+      oBtn.addEventListener('click', () => {
+        let value = input.value
+        let sHtml = ''
+
+        for (let i = 0, len = value.length; i < len; i++) {
+          sHtml += `${value[i]} : ${value[i].length} <br />`
+        }
+
+
+        textEle.innerHTML = sHtml
+      })
+
+      input.addEventListener('paste', (e) => {
+        if ( !(e.clipboardData && e.clipboardData.items) ) {
+          return
+        }
+
+        alert(JSON.stringify(e.clipboardData))
+      })
+    </script>
+  </div>
+</body>
+</html>

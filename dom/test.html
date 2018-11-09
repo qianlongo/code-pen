@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    button{
+      border: solid 1px green;
+    }
+    .disabled{
+      background: grey;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <button class="btn">点击</button>
+  <script>
+    let $btn = document.querySelector('button')
+
+    $btn.addEventListener('click', () => {
+      if ($btn.className.split(' ').indexOf('disabled') > 0) {
+        return
+      }
+
+      $btn.className += ' disabled'
+      console.log('点击')
+      // xxx 模拟请求操作
+      setTimeout(() => {
+        let classes = $btn.className.split(' ')
+        let index = classes.indexOf('disabled')
+        classes.splice(index, 1)
+
+        $btn.className = classes.join(' ')
+        console.log('请求结束，可以继续点击')
+      }, 3000)
+    }, false)
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./DataBinder.js"></script>
+</head>
+<body>
+  <input type="text" data-bind-123="123">
+
+  <span data-bind-123="123"></span>
+  <script>
+    let db = new DataBinder(123)
+    let evtName = '123:change'
+
+    db.trigger(evtName, '123', 'hahhah')
+  </script>
+</body>
+</html>

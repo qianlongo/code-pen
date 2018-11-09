@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>flex test</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      padding: 20px;
+    }
+
+    .flex-wrap{
+      border: solid 1px green;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100px;
+    }    
+
+    .input-wrap{
+      flex: 1;
+      position: relative;
+    }
+
+    .input{
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+      background: green;
+    }
+
+    .clear{
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      border-radius: 50%;
+      background-color: #ccc;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+    }
+
+    .extra{
+      width: 30px;
+      height: 20px;
+      background: red;
+    }
+
+    .err-msg{
+      color: red;
+      position: absolute;
+    }
+
+    .left{
+      padding-right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="flex-wrap">
+    <span class="left">我是左边</span>
+    <div class="input-wrap">
+      <input type="text" class="input">
+      <span class="clear"></span>
+      <div class="err-msg">错误提示</div>
+    </div>
+    <div class="extra"></div>
+  </div>
+</body>
+</html>

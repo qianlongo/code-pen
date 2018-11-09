@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>css switch</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    input[type=checkbox] {
+      /* visibility: hidden;   */
+      /* display: none; */
+      margin-top: 100px;
+    }
+
+    .checkboxOne {
+      width: 40px;
+      height: 10px;
+      background: #555;
+      margin: 20px 80px;
+      position: relative;
+      border-radius: 3px;
+    }
+
+    .checkboxOne label {
+      display: block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      transition: all .5s ease;
+      cursor: pointer;
+      position: absolute;
+      top: -3px;
+      left: -3px;
+
+      background: #ccc;
+    }
+
+    .checkboxOne input[type=checkbox]:checked+label {
+      left: 27px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="checkboxOne">
+    <input type="checkbox" value="1" id="checkboxOneInput" name="" />
+    <label for="checkboxOneInput" class="label"></label>
+  </div>
+  <script>
+    let $label = document.querySelector('.label')
+    let $checkboxOneInput = document.querySelector('#checkboxOneInput')
+
+    $checkboxOneInput.addEventListener('click', () => {
+      console.log('checkboxOneInput---' + $checkboxOneInput.checked)
+    }, false)
+
+    $label.addEventListener('click', () => {
+      console.log('label---' + $checkboxOneInput.checked)    
+      setTimeout(() => {
+        
+      }, 0)
+    }, false)
+  </script>
+</body>
+
+</html>

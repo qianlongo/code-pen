@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>test-scroll</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrap{
+      overflow: scroll;
+    }
+
+    .list{
+
+    }
+
+    li{
+      width: 33%;
+      height: 100px;
+      border: solid 1px red;
+      display: inline-block;
+      list-style: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <ul class="list">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <script>
+    let $list = document.querySelector('.list')
+
+  </script>
+</body>
+</html>

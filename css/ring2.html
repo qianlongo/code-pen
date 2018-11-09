@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>原环</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    .container{
+      width: 200px;
+      height: 500px;
+      position: absolute;
+      left: 200px;
+      top: 200px;
+      border: solid 1px red;
+    }
+
+    .wrap{
+      width: 100px;
+      height: 200px;
+      /* border: solid 1px grey; */
+      position: absolute;
+      overflow: hidden;
+      top: 0;
+    }
+    .wrap.right{
+      right: 0;
+    }
+    .wrap.left{
+      left: 0;
+    }
+
+    .circle{
+      width: 160px;
+      height: 160px;
+      border: 20px solid transparent;
+      position: absolute;
+      border-radius: 50%;
+      top: 0;
+      transform: rotate(-135deg);
+    }
+
+    .circle.right{
+      right: 0;
+      border-top-color: green;
+      border-right-color: green;
+      animation: circleRight 3s infinite; 
+    }
+    .circle.left{
+      left: 0;
+      border-left-color: green;
+      border-bottom-color: green;
+      animation: circleLeft 3s infinite; 
+    }
+
+    @-webkit-keyframes circleRight {
+      0%{
+        transform: rotate(-135deg);
+      }
+      50%, 100%{
+        transform: rotate(45deg);
+      }
+    }
+
+    @-webkit-keyframes circleLeft {
+      0%, 50%{
+        transform: rotate(-135deg);
+      }
+      100%{
+        transform: rotate(45deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrap right">
+      <div class="circle right"></div>
+    </div>
+    <div class="wrap left">
+      <div class="circle left"></div>
+    </div>
+  </div>
+</body>
+
+</html>

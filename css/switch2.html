@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>switch2</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      padding: 50px;
+    }
+
+    .switch{
+      width: 70px;
+      height: 30px;
+      border: solid 1px green;
+      position: relative;
+    }
+
+    label[for="switch-input"]{
+      display: block;
+      width: 30px;
+      height: 30px;
+      background: green;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: .3s;
+    }
+
+    #switch-input{
+      margin-top: 100px;
+    }
+    #switch-input:checked + label{
+      left: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="switch">
+    <input  type="checkbox" id="switch-input">
+    <label for="switch-input"></label>
+  </div>
+</body>
+
+</html>

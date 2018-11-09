@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    .list{
+      height: 100px;
+    }
+
+    li{
+      background: red;
+      list-style: none;
+      height: 100px;
+      float: left;
+    }
+
+    button{
+      width: 30px;
+      height: 20px;
+      border: solid 1px green;
+    }
+  </style>
+</head>
+<body>
+  <div class="warp">
+    <ul class="list">
+      <li>1</li>
+      <li>2</li>
+      <li style="height: 50px">3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+    </ul>
+  </div>
+  <div class="btns">
+    <button class="left">left</button>
+    <button class="right">right</button>
+  </div>
+  <script>
+    let percentage = 0.8
+    let clientW = document.body.clientWidth
+    let $list = document.querySelector('.list')
+    let $lis = document.querySelectorAll('.list li')
+    let $left = document.querySelector('.left')
+    let $right = document.querySelector('.right')
+    let liW = clientW * percentage
+    let liMarginR = clientW * ((1 - percentage) / 4)
+    let curIndex = 0
+    
+
+    const setLiAndListWidth = () => {
+      $list.style.width = $lis.length * (liW + liMarginR) + 'px'
+      $lis.forEach((v) => {
+        v.style.width = liW + 'px'
+        v.style.marginRight = liMarginR + 'px'
+      })
+    }
+
+    setLiAndListWidth()
+
+    const setListLeft =  () => {
+      let left = 0
+
+      left = -(liW * curIndex + (curIndex - 2) * liMarginR)
+
+      $list.style.transform = `translateX(${left}px)`
+    }
+
+    setListLeft()
+
+    const addBtnEvent = (isLeft = true) => {
+      if (isLeft) {
+        if (curIndex > 0) {
+          curIndex -= 1
+        }
+      } else {
+        if (curIndex < $lis.length - 1) {
+          curIndex += 1  
+        }
+      }
+      
+      setListLeft()
+    }
+
+    $left.addEventListener('click', () => {
+      addBtnEvent()
+      console.log(curIndex)
+    }, false)
+    $right.addEventListener('click', () => {
+      addBtnEvent(false)
+      console.log(curIndex)
+    }, false)
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .one-px{
+      border: solid 0.5px green;
+    }
+
+    .box{
+      border: solid 1px green;
+      margin-top: 10px;
+    }
+
+    .box, .one-px{
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    if (window.devicePixelRatio >= 2) {
+      let ele = document.createElement('div')
+
+      ele.style.border = '0.5px solid transparent'
+      document.body.appendChild(ele)
+
+      console.log(ele.offsetHeight)
+
+      document.body.removeChild(ele)
+    }
+  </script>
+  <div class="one-px"></div>
+  <div class="box"></div>
+</body>
+</html>

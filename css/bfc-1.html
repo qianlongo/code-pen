@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    .clearfix{
+      zoom: 1;
+    }
+    .clearfix:after{
+      display: block;
+      content: '';
+      clear: both;
+    }
+
+    .box {
+      width: 210px;
+      border: 1px solid #000;
+      /*float: left;*/
+      clear: both;
+    }
+
+    .img {
+      width: 100px;
+      height: 100px;
+      float: left;
+      margin: 10px;
+    }
+
+    .info {
+      background: #ccc;
+      color: #fff;
+      /*overflow: hidden;*/
+
+    }
+
+    .wrap p {
+      width: 100px;
+      height: 100px;
+      border: solid 1px red;
+    }
+
+    .top{
+      margin-bottom: -10px;
+    }
+
+    .bottom{
+      margin-top: -20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box clearfix">
+    <img class="img" src="http://img.sc115.com/uploads/sc/jpgs/1231apic344_sc115.com.jpg" alt="http://img.sc115.com/uploads/sc/jpgs/1231apic344_sc115.com.jpg">
+    <p class="info">信息信息信息信息信息信息信息信息信息信息信息信信息信息信息信息信息信息信息信息信息信息信息信信息信息信息信息信息信息信息信息信息信息信息信</p>
+  </div>
+  <div class="wrap">
+    <p class="top"></p>
+    <p class="bottom"></p>
+  </div>
+</body>
+
+</html>

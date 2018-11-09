@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    .clearfix{
+      zoom: 1;
+    }
+    .clearfix:after{
+      display: block;
+      clear: both;
+      content: '';
+    }
+
+    .list, .center-child2, .center-child3, .ellipsis{
+      border: solid 1px green;
+    }
+
+    .list li{
+      float: left;
+      width: 70px;
+      height: 30px;
+    }
+
+    .center-wrap, .triangle-wrap{
+      height: 300px;
+      border: solid 1px green;
+      position: relative;
+    }
+
+    .center-child{
+      width: 100px;
+      height: 100px;
+      border: solid 1px green;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -50px;
+      margin-top: -50px;
+    }
+
+    .center-child2{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%)
+    }
+
+    .flex-wrap{
+      height: 300px;
+      border: solid 1px green;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .ellipsis{
+      width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .triangle-wrap .triangle{
+      border: solid 10px transparent;
+      display: inline-block;
+    }
+
+    .triangle-wrap .top{
+      border-bottom-color: green;
+    }
+
+    .triangle-wrap .bottom{
+      border-top-color: green;
+    }
+
+    .triangle-wrap .left{
+      border-right-color: green;
+    }
+
+    .triangle-wrap .right{
+      border-left-color: green;
+    }
+
+
+  </style>
+</head>
+<body>
+  <ul class="clearfix list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+
+  <div class="center-wrap">
+    <div class="center-child"></div>
+  </div>
+
+  <div class="center-wrap">
+    <div class="center-child2">;aldshfaldjkhfladkshfdalskjhfiweauhfilafbjdkasbljadsbl</div>
+  </div>
+  
+
+  <div class="flex-wrap">
+    <div class="center-child3">;aldshfaldjkhfladkshfdalskjhfiweauhfilafbjdkasbljadsbl</div>
+  </div>
+  <p class="ellipsis">阿kdsjlfbkjb 的看法妎看了电视剧就啊但是不敢靠近阿道夫吧</p>
+  <p class="ellipsis">阿kdsjlfbkjb 的看法妎看了电视剧就啊但是不敢靠近阿道夫吧</p>
+  <div class="triangle-wrap">
+    <div class="top triangle"></div>
+    <div class="bottom triangle"></div>
+    <div class="left triangle"></div>
+    <div class="right triangle"></div>
+  </div>
+</body>
+</html>

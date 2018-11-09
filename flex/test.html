@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>flex</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrap{
+      border: solid 1px green;
+    }
+
+    .wrap p{
+      width: 200px;
+      /*height: 100px;*/
+      background: red;
+      /*border: solid 1px grey;*/
+      /* padding: 10px; */
+      box-sizing: border-box;
+      color: #fff;
+      line-height: 80px;
+      height: 100px;
+      text-align: center;
+      /* flex-grow: 1; */
+      /* flex: auto; */
+    }
+
+    .wrap.flex1{
+      width: 390px;
+      height: 400px;
+      display: flex;
+      /* flex-flow: row wrap;
+      align-content: center;  要多跟主轴  */
+      /*justify-content: space-around;*/
+      /*flex-wrap: wrap-reverse;*/
+      /*align-items: stretch;*/
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap flex1">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+  </div>
+</body>
+
+</html>

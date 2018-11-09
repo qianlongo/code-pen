@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      height: 10000px;
+      width: 10000px;
+      padding: 300px;
+    }
+    .box{
+      width: 100px;
+      height: 100px;
+      border: solid 1px red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+      http://m.shanmao.me/index.php?s=/Index/acticle/tid/1702
+  </div>
+  <script>
+    document.addEventListener('mousemove', (e) => {
+      let { pageX, clientX, offsetX, screenX } = e
+
+      console.log(`pageX:${pageX}, clientX:${clientX}, offsetX:${offsetX}, screenX:${screenX}`)
+    })
+  </script>
+</body>
+</html>
