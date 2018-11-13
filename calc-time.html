@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var calc = () => {
+      var eles = $$('.detail-time')
+      var mapTime = eles.map((ele) => {
+        return String(ele.innerText).replace(/:/g, '.').split('-')
+      }).filter((it) => {
+        return (it[0] && it[0] <= 12.00) && (it[1] && it[1] >= 12.00)
+      })
+      var len = mapTime.length
+      var result = {}
+      var total = (arr, i) => {
+        return arr.reduce((result, it) => result += Number(it[i]), 0)
+      }
+      
+      result.start = total(mapTime, 0) / len
+      result.end = total(mapTime, 1) / len
+
+      return result
+    }
+    calc()
+
+  </script>
+</body>
+</html>
