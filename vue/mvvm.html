@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text">
+  <script>
+    let data = {
+      text: 'ok'
+    }
+    let $input = document.querySelector('input')
+
+    Object.defineProperty(data, 'text', {
+      set (val) {
+        $input.value = val
+        this.text= val
+      }
+    })
+
+    $input.addEventListener('change', (e) => {
+      let value = e.target.value
+      // data.text = value
+    }, false)
+  </script>
+</body>
+</html>
