@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    const startTime = Date.now()
+
+    window.addEventListener('load', () => {
+      const loadTime = Date.now()
+
+      console.log('dom load', (loadTime - startTime) / 1000)
+    })
+  </script>
+</head>
+<body>
+  <!-- <img src="https://img.meituan.net/ccpapply/22c4fed00696171053fe90e97b7f080d409405.jpg" alt=""> -->
+  <img src="" alt="">
+  <script>
+    const insertImg = (url) => {
+      const img = document.createElement('img')
+
+      img.src = url
+      document.body.appendChild(img)
+    }
+    // insertImg('https://img.meituan.net/ccpapply/22c4fed00696171053fe90e97b7f080d409405.jpg')
+    setTimeout(() => {
+      // insertImg('https://img.meituan.net/ccpapply/22c4fed00696171053fe90e97b7f080d409405.jpg')
+      document.querySelector('img').src = 'https://img.meituan.net/ccpapply/22c4fed00696171053fe90e97b7f080d409405.jpg'
+    }, 20)
+  </script>
+</body>
+</html>

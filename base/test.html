@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    window.onload = function () {
+      function testFn () {
+        if (testFn.caller) {
+          console.log(testFn.caller.toString)
+        } else {
+          console.log('this is not a top function')
+        }
+      }
+
+      testFn()
+    }  
+    function testFn () {
+      console.log(testFn.caller)
+      if (testFn.caller) {
+        console.log(testFn.caller.toString)
+      } else {
+        console.log('this is not a top function')
+      }
+    }
+
+    testFn()
+  </script>
+</body>
+</html>
