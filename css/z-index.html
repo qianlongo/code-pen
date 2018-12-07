@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .a,
+    .b,
+    .c {
+      width: 100px;
+      height: 100px;
+    }
+
+    .a {
+      opacity: .8;
+      position: relative;
+      background: #999;
+      z-index: 102;
+    }
+
+    .b {
+      margin: -70px 0 0 30px;
+      background: #090;
+    }
+
+    .c {
+      margin: -70px 0 0 60px;
+      background: #f00;
+      position: relative;
+      z-index: 101;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="a">a</div>
+  <div class="b">b</div>
+  <div class="c">c</div>
+</body>
+
+</html>
