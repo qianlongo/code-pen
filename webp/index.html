@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    img{
+      border: 0;
+      font-size: 0;
+      float: left;
+      display: block;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const smallImgs = {
+      4: [
+        'http://p1.meituan.net/scarlett/2c7c52182fabaf71c94c6c42de3c50f582431.jpg',
+        'http://p0.meituan.net/scarlett/201dfa240c0b10944b626ed09136442076948.jpg',
+        'http://p1.meituan.net/scarlett/5e90b8e08c518e86b703b8a508783e5150950.jpg',
+        'http://p0.meituan.net/scarlett/228b8aac66439044ec6391eeda4d9bab39428.jpg'
+      ],
+      5: [
+        'http://p0.meituan.net/scarlett/5383ebe0c5ea5814d1a647354b4d103b31137.jpg',
+        'http://p0.meituan.net/scarlett/913091f6a8e8e8a8a97d2181b6460860143771.jpg',
+        'http://p0.meituan.net/scarlett/b1efa5e6886967cf4fc4ecfa3e0f5e5430177.jpg',
+        'http://p0.meituan.net/scarlett/bad5a93b0269ce658a41fabeb3a0cbf932755.jpg'
+      ],
+      6: [
+        'http://p1.meituan.net/scarlett/aedcd572d189dc639e8e388e0092bc3672569.jpg',
+        'http://p0.meituan.net/scarlett/e6662e46af0e1b92e0760fd240c67d6545030.jpg',
+        'http://p0.meituan.net/scarlett/0dc7f12170a495bbe636c02dbb28636e53822.jpg',
+        'http://p1.meituan.net/scarlett/193330ff53cc12a1de1c9f23943d68f651256.jpg'
+      ]
+    }
+    // 总计535k
+    const bigImgs = {
+      4: 'http://p0.meituan.net/scarlett/b1d114ab0c482796f7cbd7e541ec91d4179724.jpg', // 186k 200+
+      5: 'http://p0.meituan.net/scarlett/48f0eaa5595a6f872effb205db24d284179722.jpg', // 186k 
+      6: 'http://p1.meituan.net/scarlett/be27489fe9f9f49e5853758d919b94c9175206.jpg'
+    }
+
+  const getQueryStringByName = (name) => {
+    let result = location.search.match(new RegExp("[\?\&]" + name + "=([^\&]+)", "i"))
+
+    if (result == null || result.length < 1) {
+      return ""
+    }
+    return decodeURIComponent(result[1])
+  }
+
+  const checkWebp = () => {
+    try {
+      return document.createElement('canvas').toDataURL('image/webp').includes('data:image/webp')
+    } catch (err) {
+      return false
+    }
+  }
+
+  const webp = (url) => {
+    if (!url || typeof url !== 'string') return ''
+    return checkWebp() ? url + '.webp' : url
+  }
+
+  const insertImg = (imgs) => {
+    imgs = Array.isArray(imgs) && imgs || [ imgs ]
+
+    imgs.forEach((url) => {
+      const img = document.createElement('img')
+      const startTime = Date.now()
+      const image = new Image()
+
+      url = webp(url)
+
+      image.onload = () => {
+        const endTime = Date.now()
+        let lsUrl = localStorage.getItem(url)
+        let lsUrlTime
+        
+        lsUrl = lsUrl && JSON.parse(lsUrl) || {}
+        lsUrlTime = lsUrl.lsUrlTime || []
+        lsUrlTime.push(endTime - startTime)
+
+        localStorage.setItem(url, JSON.stringify({
+          average: lsUrlTime.reduce((result, it) => result + it, 0) / lsUrlTime.length,
+          lsUrlTime
+        }))
+
+        document.body.appendChild(image)
+      }
+
+      image.src = url
+    })
+  }
+
+  const init = () => {
+    const type = getQueryStringByName('type') || 's'
+    const id = getQueryStringByName('id') || 5
+    const imgs = type === 'b' ? bigImgs[ id ] : smallImgs[ id ]
+
+    insertImg(imgs)
+  }
+
+  init()
+  </script>
+</body>
+</html>
