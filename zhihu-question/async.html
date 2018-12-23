@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const cbs = []
+    // 模拟ajax异步请求
+    const ajax = (cb) => {
+      const delay = Math.random() * 2000
+      
+      setTimeout(() => {
+        cb.delay = delay
+        changeCbState(cb, 'success')
+        executeCb(cb)
+      }, delay)
+    }
+
+    /*
+      state: loading 请求中
+      state: success 请求成功，可被执行
+      state: executed 已被执行
+    */
+    const changeCbState = (cb, state) => {
+      cb.state = state
+      return cb
+    }
+
+    const genCb = (cb) => {
+      cb.index = cbs.length
+      cbs.push(cb)
+      return cb
+    }
+
+    const ajaxQueue = [
+      ajax(changeCbState(genCb(() => {
+        console.log(1)
+      }), 'loading')),
+      ajax(changeCbState(genCb(() => {
+        console.log(2)
+      }, 'loading')),
+      ajax(changeCbState(genCb(() => {
+        console.log(3)
+      }), 'loading')))
+    ]
+
+    const executeCb = (cb) => {
+      const prevCb = cbs[ cb.index - 1 ]
+      const nextCb = cbs[ cb.index + 1 ]
+
+      if (prevCb && prevCb.state === 'executed') {
+        cb()
+      } else {
+        cb()
+      }
+
+      if (nextCb && nextCb.state === 'success') {
+        nextCb()
+      }
+    }
+
+    // ajaxQueue.forEach((cb) => {
+    //   cb()
+    // })
+  </script>
+</body>
+</html>
