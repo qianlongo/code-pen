@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>电费账单</title>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <script src="https://unpkg.com/vue@2.5.21/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+  <div id="electric">
+    <el-table :data="tableData3" style="width: 100%">
+      <el-table-column fixed prop="date" label=" " width="150">
+      </el-table-column>
+      <el-table-column prop="name" label="客厅" width="120">
+      </el-table-column>
+      <el-table-column prop="province" label="主卧" width="120">
+      </el-table-column>
+      <el-table-column prop="city" label="北室" width="120">
+      </el-table-column>
+      <el-table-column prop="address" label="公共" width="300">
+      </el-table-column>
+    </el-table>
+  </div>
+  <script>
+    new Vue({
+      el: '#electric',
+      data: {
+        tableData3: [{
+          date: '当前电费',
+          name: '上次电费',
+          province: '差值',
+          city: '普陀区',
+          address: '上海市普陀区金沙江路 1518 弄',
+          zip: 200333
+        }]
+      }
+    })
+  </script>
+</body>
+
+</html>
