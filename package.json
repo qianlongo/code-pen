@@ -20,5 +20,8 @@
     "browser-sync": "^2.18.12",
     "gulp": "^3.9.1",
     "pdfjs-dist": "^2.0.183"
+  },
+  "dependencies": {
+    "pinyin": "^2.8.3"
   }
 }

@@ -1,0 +1,94 @@
+{
+  "code": "0",
+  "data": {
+    "sections": [
+      [
+        {
+          "readonly": false,
+          "key": "personalDesc",
+          "required": false,
+          "show": true
+        },
+        {
+          "readonly": false,
+          "key": "customerNamePinYin",
+          "required": true,
+          "show": true
+        },
+        {
+          "readonly": false,
+          "key": "profession",
+          "required": true,
+          "show": true
+        }
+      ],
+      [
+        {
+          "readonly": false,
+          "key": "contactDesc",
+          "required": false,
+          "show": true
+        },
+        {
+          "readonly": false,
+          "key": "contactName",
+          "required": true,
+          "show": true
+        },
+        {
+          "readonly": false,
+          "key": "contactMobile",
+          "required": true,
+          "show": true
+        },
+        {
+          "readonly": false,
+          "key": "contactRelationship",
+          "required": true,
+          "show": true
+        }
+      ],
+      [
+        {
+          "readonly": false,
+          "key": "moreFormItemsDesc",
+          "required": false,
+          "show": true
+        },
+        {
+          "readonly": false,
+          "key": "companyName",
+          "required": false,
+          "show": false
+        },
+        {
+          "readonly": false,
+          "key": "companyPhone",
+          "required": false,
+          "show": false
+        }
+      ],
+      [
+        {
+          "readonly": false,
+          "key": "companyAddrDesc",
+          "required": false,
+          "show": false
+        },
+        {
+          "readonly": false,
+          "key": "companyAddrRegion",
+          "required": false,
+          "show": false
+        },
+        {
+          "readonly": false,
+          "key": "componyDetailAddr",
+          "required": false,
+          "show": false
+        }
+      ]
+    ]
+  },
+  "message": "操作成功"
+}

@@ -10,18 +10,22 @@
 <body>
   <div id="app">
     <h1 v-if="awesome">Vue is awesome!</h1>
+    <input type="text" v-model="val" v-if="show">
   </div>
   <script>
     new Vue({
       el: '#app',
       data () {
         return {
-          awesome: false
+          awesome: false,
+          val: 'hello',
+          show: false
         }
       },
       mounted () {
         setTimeout(() => {
           this.awesome = true
+          this.show = true
         }, 2000)
       }
     })
