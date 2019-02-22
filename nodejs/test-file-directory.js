@@ -1,9 +1,12 @@
 const fs = require('fs')
-const stat = fs.lstatSync('./router/index')
+const pathStr = './router/'
 
-try {
-  console.log(stat, stat.isDirectory())
+console.log(fs.existsSync(pathStr))
+
+try {  
+  const stat = fs.lstatSync(pathStr)
+  console.log(stat.isDirectory(), stat.isFile())
   // console.log(stat.isFile())
 } catch (e) {
-
+  console.log(e)
 }
