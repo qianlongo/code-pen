@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/qianlongo/code-pen#readme",
   "devDependencies": {
+    "axios": "^0.18.0",
     "browser-sync": "^2.18.12",
     "gulp": "^3.9.1",
     "pdfjs-dist": "^2.0.183"
