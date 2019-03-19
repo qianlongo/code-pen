@@ -18,17 +18,17 @@ function myPromise (fn) {
 
   function resolve (value) {
     if (that.state === PENDING) {
-      this.state = RESOLVE
-      this.value = value
-      this.resolveCallBacks.forEach((cb) => cb(that.value))
+      that.state = RESOLVE
+      that.value = value
+      that.resolveCallBacks.forEach((cb) => cb(that.value))
     }
   }
 
   function reject (value) {
     if (that.state === PENDING) {
-      this.state = REJECT
-      this.value = value
-      this.rejectCallBacks.forEach((cb) => cb(that.value))
+      that.state = REJECT
+      that.value = value
+      that.rejectCallBacks.forEach((cb) => cb(that.value))
     }
   }
 }
@@ -42,8 +42,8 @@ myPromise.prototype.then = function (onFulfilled, onRejected) {
   }
 
   if (that.state === PENDING) {
-    this.resolveCallBacks.push(onFulfilled)
-    this.rejectCallBacks.push(onRejected)
+    that.resolveCallBacks.push(onFulfilled)
+    that.rejectCallBacks.push(onRejected)
   }
 
   if (that.state === RESOLVE) {
@@ -53,5 +53,9 @@ myPromise.prototype.then = function (onFulfilled, onRejected) {
   if (that.state === REJECT) {
     onRejected(that.value)
   }
+
+  return that
 }
+
+module.exports = myPromise
 
