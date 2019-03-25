@@ -7,33 +7,11 @@
   <title>Document</title>
 </head>
 <body>
-  <script>
-    
-    window.onload = function () {
-      function testFn () {
-        if (testFn.caller) {
-          console.log(testFn.caller.toString)
-        } else {
-          console.log('this is not a top function')
-        }
-      }
-
-      testFn()
-
-      var testA = 'aaaa'
-    }  
-    
-    function testFn () {
-      console.log(testFn.caller)
-      if (testFn.caller) {
-        console.log(testFn.caller.toString)
-      } else {
-        console.log('this is not a top function')
-      }
-    }
-
-    testFn()
-    
-  </script>
+  <div id="test"></div>
+  <script type="text/javascript">
+    var responseHtml = '<scr'+'ipt>alert("我是小白。。。")</scr'+'ipt>';
+    responseHtml = responseHtml.replace(/<\/?sc[^\>]+>/g,'')
+    eval(responseHtml);
+    </script>
 </body>
 </html>
