@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <script src="https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js"></script>
   <script>
     new VConsole()
@@ -12,83 +14,106 @@
   <script>
     window.addEventListener('load', () => {
       console.log('load-----')
+      console.log(document.querySelectorAll('img'))
+    }, false)
+    window.addEventListener('DOMContentLoaded', () => {
+      console.log('DOMContentLoaded-----')
+      console.log(document.querySelectorAll('img'))
     }, false)
   </script>
 </head>
+
 <body>
   <script>
-function ajax (options) {
-        let url = options.url
-        const method = options.method.toLocaleLowerCase() || 'get'
-        const async = options.async != false // default is true
-        const data = options.data
-        const xhr = new XMLHttpRequest()
+    function ajax(options) {
+      let url = options.url
+      const method = options.method.toLocaleLowerCase() || 'get'
+      const async = options.async != false // default is true
+      const data = options.data
+      const xhr = new XMLHttpRequest()
 
-        if (options.timeout && options.timeout > 0) {
-            xhr.timeout = options.timeout
+      if (options.timeout && options.timeout > 0) {
+        xhr.timeout = options.timeout
+      }
+
+      return new Promise((resolve, reject) => {
+        xhr.ontimeout = () => reject && reject('请求超时')
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState == 4) {
+            if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+              resolve && resolve(xhr.responseText)
+            } else {
+              reject && reject()
+            }
+          }
+        }
+        xhr.onerror = err => reject && reject(err)
+
+        let paramArr = []
+        let encodeData
+        if (data instanceof Object) {
+          for (let key in data) {
+            // 参数拼接需要通过 encodeURIComponent 进行编码
+            paramArr.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+          }
+          encodeData = paramArr.join('&')
         }
 
-        return new Promise ( (resolve, reject) => {
-            xhr.ontimeout = () => reject && reject('请求超时')
-            xhr.onreadystatechange = () => {
-                if (xhr.readyState == 4) {
-                    if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
-                        resolve && resolve(xhr.responseText)
-                    } else {
-                        reject && reject()
-                    }
-                }
-            }
-            xhr.onerror = err => reject && reject(err)
+        if (method === 'get') {
+          // 检测 url 中是否已存在 ? 及其位置
+          const index = url.indexOf('?')
+          if (index === -1) url += '?'
+          else if (index !== url.length - 1) url += '&'
+          // 拼接 url
+          url += encodeData
+        }
 
-            let paramArr = []
-            let encodeData
-            if (data instanceof Object) {
-                for (let key in data) {
-                    // 参数拼接需要通过 encodeURIComponent 进行编码
-                    paramArr.push( encodeURIComponent(key) + '=' + encodeURIComponent(data[key]) )
-                }
-                encodeData = paramArr.join('&')
-            }
-
-            if (method === 'get') {
-                  // 检测 url 中是否已存在 ? 及其位置
-                const index = url.indexOf('?')
-                if (index === -1) url += '?'
-                else if (index !== url.length -1) url += '&'
-                  // 拼接 url
-                url += encodeData
-            }
-
-            xhr.open(method, url, async)
-            if (method === 'get') xhr.send(null)
-            else {
-                // post 方式需要设置请求头
-                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded;charset=UTF-8')
-                xhr.send(encodeData)
-            }
-        } )
+        xhr.open(method, url, async)
+        if (method === 'get') xhr.send(null)
+        else {
+          // post 方式需要设置请求头
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
+          xhr.send(encodeData)
+        }
+      })
     }
 
     ajax({
       url: './demo.js',
+      // url: 'http://creditcard-fin.meituan.com/api/apply/apply/api/getSafetyTips?cardMetaId=4&crossMarketingTarget=0',
       method: 'get'
     })
-    .then((res) => {
-      let script = document.createElement('script')
-
-      script.textContent = res
-      document.body.appendChild(script)
-      console.log('ajax')
-    })
-    console.log('-------------分割线')
-    fetch('./demo.js')
       .then((res) => {
-        console.log(res)
-        console.log('demo.js')
+        // res = JSON.parse(res)
+        // // console.log(typeof res.data)
+        // const { bankLogoPicUrl } = res.data
+        // const img = document.createElement('img')
+
+        // img.src = bankLogoPicUrl
+        // document.body.appendChild(img)
+        let script = document.createElement('script')
+
+        script.textContent = res
+        document.body.appendChild(script)
+        console.log('ajax')
+      })
+    console.log('-------------分割线')
+    fetch('http://3157-axsqb-sl-creditcard.fin.test.sankuai.com/api/apply/apply/api/getSafetyTips?cardMetaId=4&crossMarketingTarget=0')
+      .then((res) => {
+        return res.json()
+      }).then((res) => {
+        const { bankLogoPicUrl } = res.data
+        const img = document.createElement('img')
+
+        img.src = bankLogoPicUrl
+        document.body.appendChild(img)
       }).catch(() => {
-        console.log('demo.js error')
+        console.log('fetch error')
       })
   </script>
+  <script>
+    console.log('===================script')
+  </script>
 </body>
+
 </html>
