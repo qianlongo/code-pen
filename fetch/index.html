@@ -24,6 +24,9 @@
 </head>
 
 <body>
+    <script>
+        console.log('===================script')
+      </script>
   <script>
     function ajax(options) {
       let url = options.url
@@ -98,22 +101,9 @@
         console.log('ajax')
       })
     console.log('-------------分割线')
-    fetch('http://3157-axsqb-sl-creditcard.fin.test.sankuai.com/api/apply/apply/api/getSafetyTips?cardMetaId=4&crossMarketingTarget=0')
-      .then((res) => {
-        return res.json()
-      }).then((res) => {
-        const { bankLogoPicUrl } = res.data
-        const img = document.createElement('img')
-
-        img.src = bankLogoPicUrl
-        document.body.appendChild(img)
-      }).catch(() => {
-        console.log('fetch error')
-      })
-  </script>
-  <script>
-    console.log('===================script')
   </script>
 </body>
+<script>
 
+</script>
 </html>
