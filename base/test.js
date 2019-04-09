@@ -6,10 +6,6 @@ const compose = (cbs) => {
     next = cbs[ len ].bind(null, next)
   }
 
-  for (let i = len - 1; i >= 0; i--) {
-    next = cbs[ i ].bind(null, next)
-  }
-
   return next
 }
 
