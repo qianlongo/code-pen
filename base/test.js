@@ -30,7 +30,7 @@ const timeout3 = (next) => {
   }, 100)
 }
 
-// timeout1.bind(null, timeout2.bind(null, timeout3.bind(null, () => {})))()
+timeout1.bind(null, timeout2.bind(null, timeout3.bind(null, () => {})))()
 
 
 compose([ timeout1, timeout2, timeout3 ])()
