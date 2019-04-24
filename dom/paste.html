@@ -8,13 +8,19 @@
 </head>
 <body>
   <div class="box">
+      paste粘贴事件paste粘贴事件paste粘贴事件
     <input type="text" id="ipt">
   </div>
   <script>
-    const $ipt = document.querySelector('#ipt')
+    document.addEventListener('copy', (e) => {
+      let clipboardData = event.clipboardData || window.clipboardData
+      let text = window.getSelection().toString()
 
-    $ipt.addEventListener('paste', ({ clipboardData } = evt) => {
-      console.log(clipboardData.getData('text'))
+      if (text) {
+        event.preventDefault();
+        clipboardData.setData('text/plain', text + 'qianlongo');
+      }
+ 
     }, false)
   </script>
 </body>
