@@ -8,8 +8,10 @@
 </head>
 <body>
   <script type="module">
-    import { name, sex } from './1.js'
-    console.log(name, sex)
+    import { counter, incCounter } from './1.js';
+    console.log(counter); // 3
+    incCounter();
+    console.log(counter); // 4
   </script>
 </body>
 </html>

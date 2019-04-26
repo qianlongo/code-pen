@@ -1,2 +1,5 @@
-export const name = 'qianlongo'
-export const sex = 'boy'
+export let counter = 3;
+export function incCounter() {
+  counter++;
+}
+
