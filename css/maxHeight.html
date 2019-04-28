@@ -39,6 +39,8 @@
       return next
     }
 
+    
+
     const genNumCbs = (len) => {
       let cbs = []
 
@@ -50,6 +52,13 @@
     }
 
     compose(genNumCbs(100))()
+    function cb (index) {
+      if (index < 100) {
+        log(cb.bind(null, ++index))
+      }
+    }
+
+    log(cb.bind(null, 0))
   </script>
 </head>
 
