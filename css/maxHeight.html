@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 300px;
+      max-height: 300px;
+      border: solid 1px red;
+      overflow: auto;
+    }
+
+    .inner {
+      height: 280px;
+    }
+  </style>
+  <script>
+    const log = (callback) => { 
+      log.count = log.count || 0; 
+      var count = log.count++; 
+      setTimeout(() => { 
+        console.log(count); 
+        callback && callback(); 
+      }, Math.random() * 1000 % 10); 
+    }
+
+    const compose = (cbs) => {
+      let next = () => {}
+      let i = cbs.length
+
+      while (i--) {
+        next = cbs[i].bind(null, next)
+      }
+
+      return next
+    }
+
+    const genNumCbs = (len) => {
+      let cbs = []
+
+      for (let i = 0; i < len; i++) {
+        cbs.push(log)
+      }
+
+      return cbs
+    }
+
+    compose(genNumCbs(100))()
+  </script>
+</head>
+
+<body>
+  <div class="box">
+    <div class="inner">
+      水电费可骄傲的减肥了黑龙江爱好
+    </div>
+  </div>
+</body>
+
+</html>
