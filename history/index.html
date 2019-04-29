@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button class="back">后退</button>
+  <button class="forward">前进</button>
+
+  <script>
+    const $back = document.querySelector('.back')
+    const $forward = document.querySelector('.forward')
+
+    $back.addEventListener('click', () => {
+      history.back()
+    }, false)
+
+    $forward.addEventListener('click', () => {
+      const num = Math.random()
+      history.pushState({
+        num
+      }, '', `${num}.html`)
+    }, false)
+
+    window.addEventListener('popstate', (e) => {
+      console.log(e.state)
+    }, false)
+  </script>
+</body>
+</html>
