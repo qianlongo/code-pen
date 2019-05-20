@@ -39,28 +39,28 @@ const bill = (roomOptions, amount) => {
     delete roomOptions[ key ]
   })
 
-  console.log(roomOptions)
+  console.table(roomOptions)
 }
 
 bill({
   // 客厅
   livingRoom: {
-    prevNum: '2882',
-    nowNum: '2978'
+    prevNum: '2978',
+    nowNum: '3031'
   },
   // 主卧
   masterRoom: {
-    prevNum: '2608',
-    nowNum: '2659'
+    prevNum: '2659',
+    nowNum: '2704'
   },
   // 北室
   northRoom: {
-    prevNum: '1969',
-    nowNum: '2080'
+    prevNum: '2080',
+    nowNum: '2102'
   },
   // 公共
   commonRoom: {
-    prevNum: '1994',
-    nowNum: '2044'
+    prevNum: '2044',
+    nowNum: '2150'
   }
-}, 190.98)
+}, 60.28)
