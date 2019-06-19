@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    window.addEventListener('load', () => {
+      console.log('load')
+    }, false)
+  </script>
+</head>
+<body>
+  <script>
+    var ele = document.createElement('script')
+
+    ele.src = 'https://analytics.meituan.net/analytics.js'
+
+    ele.addEventListener('load', () => {
+      console.log('ele-load')
+    }, false)
+    document.head.appendChild(ele)
+
+
+    console.log('1111111')
+  </script>
+  <script>
+    
+  </script>
+</body>
+</html>
