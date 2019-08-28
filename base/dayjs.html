@@ -9,9 +9,14 @@
 <body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.15/dayjs.min.js"></script>
   <script>
-    const d = new Date()
-    const str = dayjs(d).format('YYYY-MM-DD HH:mm:ss')
-    console.log(str)
+    const d1 = new Date()
+    const d2 = dayjs('20190815235959')
+    // const str = dayjs(d1).format('YYYYMMDDHHmmss')
+    // const str2 = dayjs(d2).format('YYYYMMDDHHmmss')
+
+    // console.log(str)
+    // console.log(str2)
+    console.log(d2.diff(d1))
   </script>
   <script>
     
