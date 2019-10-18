@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    .installment-main {
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      -webkit-flex: 1 1 auto;
+      flex: 1 1 auto;
+      overflow-y: scroll;
+      padding: 0 20px;
+      margin: 0 -20px;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -moz-box-pack: space-between;
+      -webkit-box-pack: space-between;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+    }
+
+    .inner1 {
+      background-color: red;
+    }
+
+    .inner2 {
+      background-color: green;
+    }
+
+    .installment-container {
+      height: 100%;
+    }
+
+    .installment-detail {
+      padding: 0 20px;
+      height: 100%;
+      background-color: #ffffff;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      -webkit-flex-direction: column;
+      flex-direction: column;
+      -moz-box-pack: space-between;
+      -webkit-box-pack: space-between;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      -webkit-overflow-scrolling: touch;
+      overflow: scroll;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="installment-container">
+    <div class="installment-detail">
+      <div class="installment-main">
+        <div class="inner1">
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+          <p>111111111111</p>
+        </div>
+        <div class="inner2">底部</div>
+      </div>
+      <div class="xxx">xxxx</div>
+    </div>
+  </div>
+  <script>
+    alert(document.querySelector('.installment-main').offsetHeight)
+    alert(document.querySelector('.installment-detail').offsetHeight)
+  </script>
+</body>
+
+</html>
